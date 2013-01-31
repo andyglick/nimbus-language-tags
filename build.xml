@@ -49,6 +49,7 @@
 			<classpath refid="classpath.runtime"/>
 			<formatter type="plain"/>
 			<test name="com.nimbusds.langtag.LangTagTest"/>
+			<test name="com.nimbusds.langtag.LangTagUtilTest"/>
 		</junit>
 	</target>
 	

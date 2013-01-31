@@ -20,3 +20,4 @@ version 1.0 (2012-05-26)
 version 1.1 (2013-01-31)
 	* Adds ReadOnlyLangTag interface.
 	* Fixes LangTag.equals(Object) handling of null arguments.
+	* Adds LangTagUtil class.
