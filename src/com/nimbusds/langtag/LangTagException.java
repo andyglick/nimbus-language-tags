@@ -5,7 +5,7 @@ package com.nimbusds.langtag;
  * Language tag exception.
  *
  * @author Vladimir Dzhuvinov
- * @version 1.0 (2012-04-06)
+ * @version 1.1 (2013-01-31)
  */
 public class LangTagException extends Exception {
 
@@ -19,5 +19,4 @@ public class LangTagException extends Exception {
 	
 		super(message);
 	}
-
 }

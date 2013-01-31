@@ -47,9 +47,9 @@ import java.util.List;
  * <p>See <a href="http://tools.ietf.org/html/rfc5646">RFC 5646</a>.
  *
  * @author Vladimir Dzhuvinov
- * @version 1.0 (2012-04-06)
+ * @version 1.1 (2013-01-31)
  */
-public class LangTag {
+public class LangTag implements ReadOnlyLangTag {
 
 
 	/**
@@ -164,23 +164,7 @@ public class LangTag {
 	}
 	
 	
-	/**
-	 * Gets the language (primary language plus extended language subtags).
-	 *
-	 * <p>See RFC 5646 section 2.2.1.
-	 *
-	 * <p>Examples:
-	 *
-	 * <pre>
-	 * en
-	 * de
-	 * zh-cmn
-	 * cmn
-	 * </pre>
-	 *
-	 * @return The language, consisting of the primary and/or extended 
-	 *         language subtags.
-	 */
+	@Override
 	public String getLanguage() {
 	
 		StringBuilder sb = new StringBuilder();
@@ -203,14 +187,7 @@ public class LangTag {
 	}
 	
 	
-	/**
-	 * Gets the primary language.
-	 *
-	 * <p>See RFC 5646 section 2.2.1.
-	 *
-	 * @return The primary language, as a two or three-letter ISO 639 code,
-	 *         in canonical lower case format.
-	 */
+	@Override
 	public String getPrimaryLanguage() {
 	
 		return primaryLanguage;
@@ -259,14 +236,7 @@ public class LangTag {
 	}
 	
 	
-	/**
-	 * Gets the extended language subtags.
-	 *
-	 * <p>See RFC 5646 section 2.2.2.
-	 *
-	 * @return The extended language subtags, as three-letter ISO 639-3 
-	 *         codes. {@code null} if none.
-	 */
+	@Override
 	public String[] getExtendedLanguageSubtags() {
 	
 		return languageSubtags;
@@ -317,14 +287,7 @@ public class LangTag {
 	}
 	
 	
-	/**
-	 * Gets the script.
-	 *
-	 * <p>See RFC 5646 section 2.2.3.
-	 *
-	 * @return The script, as an ISO 15924 code, in canonical title case
-	 *         format. {@code null} if not defined.
-	 */
+	@Override
 	public String getScript() {
 	
 		return script;
@@ -372,14 +335,7 @@ public class LangTag {
 	}
 	
 	
-	/**
-	 * Gets the region.
-	 *
-	 * <p>See RFC 5646 section 2.2.4.
-	 *
-	 * @return The region, as a two-letter ISO 3166-1 code or a three-digit
-	 *         UN M.49 code. {@code null} if not defined.
-	 */
+	@Override
 	public String getRegion() {
 	
 		return region;
@@ -426,13 +382,7 @@ public class LangTag {
 	}
 	
 	
-	/**
-	 * Gets the variants.
-	 *
-	 * <p>See RFC 5646 section 2.2.5.
-	 *
-	 * @return The variants. {@code null} if not defined.
-	 */
+	@Override
 	public String[] getVariants() {
 	
 		return variants;
@@ -483,13 +433,7 @@ public class LangTag {
 	}
 	
 	
-	/**
-	 * Gets the extensions.
-	 *
-	 * <p>See RFC 5646 section 2.2.6.
-	 *
-	 * @return The extensions. {@code null} if not defined.
-	 */
+	@Override
 	public String[] getExtensions() {
 	
 		return extensions;
@@ -554,13 +498,7 @@ public class LangTag {
 	}
 	
 	
-	/**
-	 * Gets the private use.
-	 *
-	 * <p>See RFC 5646 section 2.2.7.
-	 *
-	 * @return The private use. {@code null} if not defined.
-	 */
+	@Override
 	public String getPrivateUse() {
 	
 		return privateUse;
@@ -606,11 +544,7 @@ public class LangTag {
 	}
 	
 	
-	/**
-	 * Returns the canonical string representation of this language tag.
-	 *
-	 * @return The canonical string representation.
-	 */
+	@Override
 	public String toString() {
 	
 		StringBuilder sb = new StringBuilder(getLanguage());
@@ -656,6 +590,7 @@ public class LangTag {
 	 *
 	 * @return The object hash code.
 	 */
+	@Override
 	public int hashCode() {
 	
 		return toString().hashCode();
@@ -670,9 +605,12 @@ public class LangTag {
 	 * @return {@code true} if the objects have the same value, otherwise
 	 *         {@code false}.
 	 */
+	@Override
 	public boolean equals(Object object) {
 	
-		return object instanceof LangTag && this.toString().equals(object.toString());
+		return object != null &&
+		       object instanceof LangTag && 
+		       this.toString().equals(object.toString());
 	}
 	
 	
