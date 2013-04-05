@@ -12,6 +12,5 @@
  * <p>This package has no dependencies.
  *
  * @author Vladimir Dzhuvinov
- * @version $version$
  */
 package com.nimbusds.langtag;

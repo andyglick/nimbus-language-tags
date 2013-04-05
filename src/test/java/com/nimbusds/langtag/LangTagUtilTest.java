@@ -11,7 +11,6 @@ import junit.framework.TestCase;
  * Tests the language tag utility class.
  *
  * @author Vladimir Dzhuvinov
- * @version 1.1 (2013-01-31)
  */
 public class LangTagUtilTest extends TestCase {
 	

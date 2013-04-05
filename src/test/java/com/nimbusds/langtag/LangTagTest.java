@@ -8,7 +8,6 @@ import junit.framework.TestCase;
  * Tests the language tag class.
  *
  * @author Vladimir Dzhuvinov
- * @version 1.1 (2012-04-06)
  */
 public class LangTagTest extends TestCase {
 	
