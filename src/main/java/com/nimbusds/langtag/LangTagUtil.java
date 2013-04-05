@@ -9,7 +9,7 @@ import java.util.Map;
  * Language tag utilities.
  *
  * @author Vladimir Dzhuvinov
- * @version 1.1 (2013-01-31)
+ * @version $version$ (2013-01-31)
  */
 public class LangTagUtil {
 

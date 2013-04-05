@@ -47,7 +47,7 @@ import java.util.List;
  * <p>See <a href="http://tools.ietf.org/html/rfc5646">RFC 5646</a>.
  *
  * @author Vladimir Dzhuvinov
- * @version 1.1 (2013-01-31)
+ * @version $version$ (2013-01-31)
  */
 public class LangTag implements ReadOnlyLangTag {
 

@@ -5,7 +5,7 @@ package com.nimbusds.langtag;
  * Read-only view of a {@link LangTag Language tag}.
  *
  * @author Vladimir Dzhuvinov
- * @version 1.1 (2013-01-31)
+ * @version $version$ (2013-01-31)
  */
 public interface ReadOnlyLangTag {
 	

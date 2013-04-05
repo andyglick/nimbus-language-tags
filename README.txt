@@ -21,3 +21,7 @@ version 1.1 (2013-01-31)
 	* Adds ReadOnlyLangTag interface.
 	* Fixes LangTag.equals(Object) handling of null arguments.
 	* Adds LangTagUtil class.
+
+version 1.1.1 (2013-04-05)
+	* Switches Ant build script to Maven.
+	* Publishes library to Maven Central.
