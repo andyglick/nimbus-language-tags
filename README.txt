@@ -25,3 +25,7 @@ version 1.1 (2013-01-31)
 version 1.1.1 (2013-04-05)
 	* Switches Ant build script to Maven.
 	* Publishes library to Maven Central.
+
+version 1.2 (2013-08-16)
+    * Renames LangTagUtil class.
+    * Adds strip method to LangTagUtils class.
