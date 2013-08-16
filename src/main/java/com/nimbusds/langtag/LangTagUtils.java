@@ -10,7 +10,7 @@ import java.util.Map;
  *
  * @author Vladimir Dzhuvinov
  */
-public class LangTagUtil {
+public class LangTagUtils {
 
 
 	/**
@@ -97,5 +97,5 @@ public class LangTagUtil {
 	/**
 	 * Prevents public instantiation.
 	 */
-	private LangTagUtil() { }
+	private LangTagUtils() { }
 }

@@ -26,7 +26,7 @@ public class LangTagUtilTest extends TestCase {
 		map.put("month#pt", "janeiro");
 		map.put("other key", "other value");
 
-		Map<LangTag,String> result = LangTagUtil.find("month", map);
+		Map<LangTag,String> result = LangTagUtils.find("month", map);
 
 		assertEquals("January", result.get(null));
 		assertEquals("Januar", result.get(new LangTag("de")));
@@ -41,7 +41,7 @@ public class LangTagUtilTest extends TestCase {
 
 		Map<String,String> map = new HashMap<String,String>();
 
-		Map<LangTag,String> result = LangTagUtil.find("month", map);
+		Map<LangTag,String> result = LangTagUtils.find("month", map);
 
 		assertTrue(result.isEmpty());
 	}
@@ -57,7 +57,7 @@ public class LangTagUtilTest extends TestCase {
 		map.put("month#pt", "janeiro");
 		map.put("other key", "other value");
 
-		Map<LangTag,String> result = LangTagUtil.find("day", map);
+		Map<LangTag,String> result = LangTagUtils.find("day", map);
 
 		assertTrue(result.isEmpty());
 	}
