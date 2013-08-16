@@ -33,8 +33,6 @@ public class JSONSerializationTest extends TestCase {
 		jsonObject.put("defaultLanguage", LangTag.parse("en-US"));
 		
 		System.out.println(jsonObject);
-		
 	}
-
 }
 

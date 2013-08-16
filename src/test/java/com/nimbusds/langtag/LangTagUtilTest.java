@@ -13,6 +13,28 @@ import junit.framework.TestCase;
  * @author Vladimir Dzhuvinov
  */
 public class LangTagUtilTest extends TestCase {
+
+
+	public void testStripWithLangTag() {
+
+		assertEquals("name", LangTagUtils.strip("name#en-US"));
+
+		assertEquals("profile", LangTagUtils.strip("profile#"));
+	}
+
+
+	public void testStripWithNoLangTag() {
+
+		assertEquals("name", LangTagUtils.strip("name"));
+
+		assertEquals("", LangTagUtils.strip(""));
+	}
+
+
+	public void testStripWithNullArg() {
+
+		assertNull(LangTagUtils.strip(null));
+	}
 	
 	
 	public void testFind()

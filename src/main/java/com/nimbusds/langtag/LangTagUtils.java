@@ -14,6 +14,36 @@ public class LangTagUtils {
 
 
 	/**
+	 * Strips the language tag, if any is found, from the specified string.
+	 * This method is {@code null} safe.
+	 *
+	 * <p>Example:
+	 *
+	 * <pre>
+	 * "name#bg-BG" => "name"
+	 * "name"       => "name"
+	 * </pre>
+	 *
+	 * @param s The string. May contain a language tag. May be
+	 *          {@code null}.
+	 *
+	 * @return The string with no language tag.
+	 */
+	public static String strip(final String s) {
+
+		if (s == null)
+			return null;
+
+		final int pos = s.indexOf('#');
+
+		if (pos < 0)
+			return s;
+
+		return s.substring(0, pos);
+	}
+
+
+	/**
 	 * Finds all language-tagged entries with the specified base name.
 	 * Entries with invalid language tags will be skipped.
 	 *
