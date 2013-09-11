@@ -15,17 +15,18 @@ This package has no dependencies.
 Change log:
 
 version 1.0 (2012-05-26)
-	* First official release.
+ * First official release.
 	
 version 1.1 (2013-01-31)
-	* Adds ReadOnlyLangTag interface.
-	* Fixes LangTag.equals(Object) handling of null arguments.
-	* Adds LangTagUtil class.
+ * Adds ReadOnlyLangTag interface.
+ * Fixes LangTag.equals(Object) handling of null arguments.
+ * Adds LangTagUtil class.
 
 version 1.1.1 (2013-04-05)
-	* Switches Ant build script to Maven.
-	* Publishes library to Maven Central.
+ * Switches Ant build script to Maven.
+ * Publishes library to Maven Central.
 
-version 1.2 (2013-08-16)
-    * Renames LangTagUtil class.
-    * Adds strip method to LangTagUtils class.
+version 1.2 (2013-09-11)
+ * Renames LangTagUtil class to LangTagUtils.
+ * Adds strip method to LangTagUtils class.
+ * Adds extract method to LangTagUtils class.
