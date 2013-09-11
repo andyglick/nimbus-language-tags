@@ -15,8 +15,8 @@
 	<packaging>jar</packaging>
 	
 	<name>Nimbus LangTag</name>
-	<description>Java implementation of "Tags for Identifying Languages", 
-		RFC-5646.
+	<description>Java implementation of "Tags for Identifying Languages"
+		(RFC 5646).
 	</description>
 
 	<url>https://bitbucket.org/nimbusds/nimbus-langtag</url>
@@ -63,7 +63,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.10</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -79,7 +79,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.0</version>
+					<version>3.1</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -104,7 +104,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-gpg-plugin</artifactId>
-					<version>1.1</version>
+					<version>1.4</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
