@@ -35,6 +35,48 @@ public class LangTagUtilTest extends TestCase {
 
 		assertNull(LangTagUtils.strip(null));
 	}
+
+
+	public void testExtractWithNullArg()
+		throws LangTagException {
+
+		assertNull(LangTagUtils.extract(null));
+	}
+
+
+	public void testExtractWithNoLangTag()
+		throws LangTagException {
+
+		assertNull(LangTagUtils.extract("name"));
+	}
+
+
+	public void testExtractWithEmptyLangTag()
+		throws LangTagException {
+
+		assertNull(LangTagUtils.extract("name#"));
+	}
+
+
+	public void testExtractValid()
+		throws LangTagException {
+
+		assertEquals("bg-BG", LangTagUtils.extract("name#bg-BG").toString());
+	}
+
+
+	public void testExtractInvalid() {
+
+		try {
+			LangTagUtils.extract("name#nosuchlangtag");
+
+			fail("Failed to raise exception");
+
+		} catch (LangTagException e) {
+
+			// ok
+		}
+	}
 	
 	
 	public void testFind()

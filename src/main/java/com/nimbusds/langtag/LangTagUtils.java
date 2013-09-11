@@ -10,7 +10,7 @@ import java.util.Map;
  *
  * @author Vladimir Dzhuvinov
  */
-public class LangTagUtils {
+public final class LangTagUtils {
 
 
 	/**
@@ -40,6 +40,40 @@ public class LangTagUtils {
 			return s;
 
 		return s.substring(0, pos);
+	}
+
+
+	/**
+	 * Extracts the language tag, if any is found, from the specified
+	 * string.
+	 *
+	 * <p>Example:
+	 *
+	 * <pre>
+	 * "name#bg-BG" => "bg-BG"
+	 * "name#"      => null
+	 * "name"       => null
+	 * </pre>
+	 *
+	 * @param s The string. May contain a language tag. May be
+	 *          {@code null}.
+	 *
+	 * @return The extracted language tag, {@code null} if not found.
+	 *
+	 * @throws LangTagException If the language tag is invalid.
+	 */
+	public static LangTag extract(final String s)
+		throws LangTagException {
+
+		if (s == null)
+			return null;
+
+		final int pos = s.indexOf('#');
+
+		if (pos < 0 || s.length() < pos + 1)
+			return null;
+
+		return LangTag.parse(s.substring(pos + 1));
 	}
 
 
