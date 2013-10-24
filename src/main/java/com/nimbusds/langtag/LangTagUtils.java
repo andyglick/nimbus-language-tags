@@ -1,8 +1,7 @@
 package com.nimbusds.langtag;
 
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -40,6 +39,66 @@ public final class LangTagUtils {
 			return s;
 
 		return s.substring(0, pos);
+	}
+
+
+	/**
+	 * Strips the language tags, if any are found, from the specified
+	 * string set. This method is {@code null} safe.
+	 *
+	 * <p>Example:
+	 *
+	 * <pre>
+	 * "name#bg-BG" => "name"
+	 * "name"       => "name"
+	 * </pre>
+	 *
+	 * @param set The string set. May contain strings with language tags.
+	 *            May be {@code null}.
+	 *
+	 * @return The string set with no language tags.
+	 */
+	public static Set<String> strip(final Set<String> set) {
+
+		if (set == null)
+			return null;
+
+		Set<String> out = new HashSet<String>();
+
+		for (String s: set)
+			out.add(strip(s));
+
+		return out;
+	}
+
+
+	/**
+	 * Strips the language tags, if any are found, from the specified
+	 * string list. This method is {@code null} safe.
+	 *
+	 * <p>Example:
+	 *
+	 * <pre>
+	 * "name#bg-BG" => "name"
+	 * "name"       => "name"
+	 * </pre>
+	 *
+	 * @param list The string list. May contain strings with language tags.
+	 *             May be {@code null}.
+	 *
+	 * @return The string list with no language tags.
+	 */
+	public static List<String> strip(final List<String> list) {
+
+		if (list == null)
+			return null;
+
+		List<String> out = new ArrayList<String>(list.size());
+
+		for (String s: list)
+			out.add(strip(s));
+
+		return out;
 	}
 
 

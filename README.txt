@@ -30,3 +30,6 @@ version 1.2 (2013-09-11)
  * Renames LangTagUtil class to LangTagUtils.
  * Adds strip method to LangTagUtils class.
  * Adds extract method to LangTagUtils class.
+
+version 1.3 (2013-10-23)
+ * Adds LangTagUtils.strip(Set) and LangTagUtils.strip(List) methods.

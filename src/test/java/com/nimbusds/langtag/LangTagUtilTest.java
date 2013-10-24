@@ -1,8 +1,7 @@
 package com.nimbusds.langtag;
 
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import junit.framework.TestCase;
 
@@ -31,9 +30,38 @@ public class LangTagUtilTest extends TestCase {
 	}
 
 
+	public void testStripSet() {
+
+		Set<String> set = new HashSet<String>();
+		set.add("name");
+		set.add("name#en-US");
+
+		Set<String> out = LangTagUtils.strip(set);
+
+		assertTrue(out.contains("name"));
+		assertEquals(1, out.size());
+	}
+
+
+	public void testStripList() {
+
+		List<String> list = new ArrayList<String>();
+		list.add("name");
+		list.add("name#en-US");
+
+		List<String> out = LangTagUtils.strip(list);
+
+		assertEquals("name", out.get(0));
+		assertEquals("name", out.get(1));
+		assertEquals(2, out.size());
+	}
+
+
 	public void testStripWithNullArg() {
 
-		assertNull(LangTagUtils.strip(null));
+		assertNull(LangTagUtils.strip((String)null));
+		assertNull(LangTagUtils.strip((Set)null));
+		assertNull(LangTagUtils.strip((List)null));
 	}
 
 
