@@ -3,8 +3,6 @@ package com.nimbusds.langtag;
 
 /**
  * Read-only view of a {@link LangTag Language tag}.
- *
- * @author Vladimir Dzhuvinov
  */
 public interface ReadOnlyLangTag {
 	

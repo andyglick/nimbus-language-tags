@@ -6,8 +6,6 @@ import java.util.*;
 
 /**
  * Language tag utilities.
- *
- * @author Vladimir Dzhuvinov
  */
 public final class LangTagUtils {
 

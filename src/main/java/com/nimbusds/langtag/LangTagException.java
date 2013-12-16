@@ -3,8 +3,6 @@ package com.nimbusds.langtag;
 
 /**
  * Language tag exception.
- *
- * @author Vladimir Dzhuvinov
  */
 public class LangTagException extends Exception {
 

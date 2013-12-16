@@ -11,8 +11,6 @@ import net.minidev.json.JSONObject;
 
 /**
  * Tests JSON serialisation.
- * 
- * @author Vladimir Dzhuvinov
  */
 public class JSONSerializationTest extends TestCase {
 	
