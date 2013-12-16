@@ -10,18 +10,10 @@ import junit.framework.TestCase;
 public class LangTagTest extends TestCase {
 	
 	
-	public void testConstructorSimple() {
+	public void testConstructorSimple()
+		throws LangTagException{
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("en");
-
-		} catch (LangTagException e) {		
-		
-			fail(e.getMessage());
-		}
-		
+		LangTag lt = new LangTag("en");
 		assertEquals("en", lt.getPrimaryLanguage());
 		assertNull(lt.getExtendedLanguageSubtags());
 		assertEquals("en", lt.getLanguage());
@@ -29,18 +21,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testConstructorSimpleCanonicalFormat() {
+	public void testConstructorSimpleCanonicalFormat()
+		throws LangTagException {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("EN");
-
-		} catch (LangTagException e) {		
-		
-			fail(e.getMessage());
-		}
-		
+		LangTag lt = new LangTag("EN");
 		assertEquals("en", lt.getPrimaryLanguage());
 		assertNull(lt.getExtendedLanguageSubtags());
 		assertEquals("en", lt.getLanguage());
@@ -50,32 +34,20 @@ public class LangTagTest extends TestCase {
 	
 	public void testConstructorNull() {
 	
-		LangTag lt = null;
-		
 		try {
-			lt = new LangTag(null);
+			new LangTag(null);
+			fail();
 
-			fail("Failed to raise exception");
-
-		} catch (LangTagException e) {		
-		
+		} catch (LangTagException e) {
 			// ok
 		}
 	}
 	
 	
-	public void testConstructorExtended() {
+	public void testConstructorExtended()
+		throws LangTagException {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("zh", "cmn");
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
-		
+		LangTag lt = new LangTag("zh", "cmn");
 		assertEquals("zh", lt.getPrimaryLanguage());
 		assertNotNull(lt.getExtendedLanguageSubtags());
 		assertEquals("cmn", lt.getExtendedLanguageSubtags()[0]);
@@ -85,32 +57,20 @@ public class LangTagTest extends TestCase {
 	
 	public void testConstructorExtendedNull() {
 	
-		LangTag lt = null;
-		
 		try {
-			lt = new LangTag(null, new String[]{});
-			
-			fail("Failed to raise exception");
+			new LangTag(null, new String[]{});
+			fail();
 			
 		} catch (LangTagException e) {
-		
 			// ok
 		}
 	}
 	
 	
-	public void testConstructorExtendedMultiple() {
+	public void testConstructorExtendedMultiple()
+		throws Exception {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("zh", "cmn", "xyz");
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
-		
+		LangTag lt = new LangTag("zh", "cmn", "xyz");
 		assertEquals("zh", lt.getPrimaryLanguage());
 		assertNotNull(lt.getExtendedLanguageSubtags());
 		assertEquals(2, lt.getExtendedLanguageSubtags().length);
@@ -121,18 +81,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testConstructorExtendedSubtagOnly() {
+	public void testConstructorExtendedSubtagOnly()
+		throws LangTagException {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag(null, "cmn");
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
-		
+		LangTag lt = new LangTag(null, "cmn");
 		assertNull(lt.getPrimaryLanguage());
 		assertNotNull(lt.getExtendedLanguageSubtags());
 		assertEquals("cmn", lt.getExtendedLanguageSubtags()[0]);
@@ -141,47 +93,24 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testEquality() {
+	public void testEquality()
+		throws LangTagException {
 	
-		LangTag lt1 = null;
+		LangTag lt1 = new LangTag("en");
+		lt1.setRegion("us");
 		
-		try {
-			lt1 = new LangTag("en");
-			lt1.setRegion("us");
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
-		
-		
-		LangTag lt2 = null;
-		
-		try {
-			lt2 = new LangTag("EN");
-			lt2.setRegion("US");
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt2 = new LangTag("EN");
+		lt2.setRegion("US");
 		
 		assertTrue(lt1.equals(lt2));
 	}
 	
 	
-	public void testScript() {
+	public void testScript()
+		throws Exception {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("sr");
-			lt.setScript("Cyrl");
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}	
+		LangTag lt = new LangTag("sr");
+		lt.setScript("Cyrl");
 		
 		assertEquals("sr", lt.getPrimaryLanguage());
 		assertEquals("sr", lt.getLanguage());
@@ -190,19 +119,12 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testScriptNull() {
+	public void testScriptNull()
+		throws LangTagException {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("sr");
-			lt.setScript(null);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}	
-		
+		LangTag lt = new LangTag("sr");
+		lt.setScript(null);
+
 		assertEquals("sr", lt.getPrimaryLanguage());
 		assertEquals("sr", lt.getLanguage());
 		assertNull(lt.getScript());
@@ -210,18 +132,11 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testRegionISO3166() {
+	public void testRegionISO3166()
+		throws LangTagException {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("en");
-			lt.setRegion("US");
-		
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = new LangTag("en");
+		lt.setRegion("US");
 		
 		assertEquals("en", lt.getPrimaryLanguage());
 		assertEquals("en", lt.getLanguage());
@@ -230,18 +145,11 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testRegionUNM49() {
+	public void testRegionUNM49()
+		throws LangTagException {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("en");
-			lt.setRegion("123");
-		
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = new LangTag("en");
+		lt.setRegion("123");
 		
 		assertEquals("en", lt.getPrimaryLanguage());
 		assertEquals("en", lt.getLanguage());
@@ -250,18 +158,11 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testRegionNull() {
+	public void testRegionNull()
+		throws LangTagException {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("en");
-			lt.setRegion(null);
-		
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = new LangTag("en");
+		lt.setRegion(null);
 		
 		assertEquals("en", lt.getPrimaryLanguage());
 		assertEquals("en", lt.getLanguage());
@@ -270,18 +171,11 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testVariants() {
+	public void testVariants()
+		throws LangTagException {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("en");
-			lt.setVariants(new String[]{"2012"});
-		
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = new LangTag("en");
+		lt.setVariants("2012");
 		
 		assertEquals("en", lt.getPrimaryLanguage());
 		assertEquals("en", lt.getLanguage());
@@ -291,18 +185,11 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testVariantsEmpty() {
+	public void testVariantsEmpty()
+		throws LangTagException {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("en");
-			lt.setVariants(new String[]{});
-		
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = new LangTag("en");
+		lt.setVariants();
 		
 		assertEquals("en", lt.getPrimaryLanguage());
 		assertEquals("en", lt.getLanguage());
@@ -311,18 +198,11 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testExtensions() {
+	public void testExtensions()
+		throws LangTagException {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("en");
-			lt.setExtensions(new String[]{"a-cal"});
-		
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = new LangTag("en");
+		lt.setExtensions("a-cal");
 		
 		assertEquals("en", lt.getPrimaryLanguage());
 		assertEquals("en", lt.getLanguage());
@@ -332,18 +212,11 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testExtensionsEmpty() {
+	public void testExtensionsEmpty()
+		throws LangTagException {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("en");
-			lt.setExtensions(new String[]{});
-		
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = new LangTag("en");
+		lt.setExtensions();
 		
 		assertEquals("en", lt.getPrimaryLanguage());
 		assertEquals("en", lt.getLanguage());
@@ -352,18 +225,11 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testPrivateUse() {
+	public void testPrivateUse()
+		throws LangTagException {
 	
-		LangTag lt = null;
-		
-		try {
-			lt = new LangTag("en");
-			lt.setPrivateUse("x-private");
-		
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = new LangTag("en");
+		lt.setPrivateUse("x-private");
 		
 		assertEquals("en", lt.getPrimaryLanguage());
 		assertEquals("en", lt.getLanguage());
@@ -372,19 +238,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testParse1() {
+	public void testParse1()
+		throws LangTagException {
 	
-		String s = "de";
-		
-		LangTag lt = null;
-		
-		try {
-			lt = LangTag.parse(s);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = LangTag.parse("de");
 	
 		assertEquals("de", lt.getPrimaryLanguage());
 		assertEquals("de", lt.getLanguage());
@@ -392,19 +249,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testParse2() {
+	public void testParse2()
+		throws LangTagException {
 	
-		String s = "zh-Hant";
-		
-		LangTag lt = null;
-		
-		try {
-			lt = LangTag.parse(s);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = LangTag.parse("zh-Hant");
 	
 		assertEquals("zh", lt.getPrimaryLanguage());
 		assertEquals("zh", lt.getLanguage());
@@ -413,19 +261,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testParse3() {
+	public void testParse3()
+		throws LangTagException {
 	
-		String s = "zh-cmn-Hans-CN";
-		
-		LangTag lt = null;
-		
-		try {
-			lt = LangTag.parse(s);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = LangTag.parse("zh-cmn-Hans-CN");
 	
 		assertEquals("zh", lt.getPrimaryLanguage());
 		assertEquals("cmn", lt.getExtendedLanguageSubtags()[0]);
@@ -436,19 +275,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testParse4() {
+	public void testParse4()
+		throws LangTagException {
 	
-		String s = "zh-yue-HK";
-		
-		LangTag lt = null;
-		
-		try {
-			lt = LangTag.parse(s);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = LangTag.parse("zh-yue-HK");
 	
 		assertEquals("zh", lt.getPrimaryLanguage());
 		assertEquals("yue", lt.getExtendedLanguageSubtags()[0]);
@@ -458,19 +288,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testParse5() {
+	public void testParse5()
+		throws LangTagException {
 	
-		String s = "yue-HK";
-		
-		LangTag lt = null;
-		
-		try {
-			lt = LangTag.parse(s);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = LangTag.parse("yue-HK");
 
 		assertEquals("yue", lt.getPrimaryLanguage());
 		assertNull(lt.getExtendedLanguageSubtags());
@@ -480,19 +301,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testParse6() {
+	public void testParse6()
+		throws LangTagException {
 	
-		String s = "sr-Latn-RS";
-		
-		LangTag lt = null;
-		
-		try {
-			lt = LangTag.parse(s);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = LangTag.parse("sr-Latn-RS");
 
 		assertEquals("sr", lt.getPrimaryLanguage());
 		assertNull(lt.getExtendedLanguageSubtags());
@@ -503,19 +315,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testParse7() {
+	public void testParse7()
+		throws LangTagException {
 	
-		String s = "sl-rozaj";
-		
-		LangTag lt = null;
-		
-		try {
-			lt = LangTag.parse(s);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = LangTag.parse("sl-rozaj");
 
 		assertEquals("sl", lt.getPrimaryLanguage()); 
 		assertNull(lt.getExtendedLanguageSubtags()); 
@@ -530,19 +333,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testParse8() {
+	public void testParse8()
+		throws LangTagException {
 	
-		String s = "de-CH-1901";
-		
-		LangTag lt = null;
-		
-		try {
-			lt = LangTag.parse(s);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = LangTag.parse("de-CH-1901");
 
 		assertEquals("de", lt.getPrimaryLanguage()); 
 		assertNull(lt.getExtendedLanguageSubtags()); 
@@ -557,19 +351,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testParse9() {
+	public void testParse9()
+		throws LangTagException {
 	
-		String s = "hy-Latn-IT-arevela";
-		
-		LangTag lt = null;
-		
-		try {
-			lt = LangTag.parse(s);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = LangTag.parse("hy-Latn-IT-arevela");
 
 		assertEquals("hy", lt.getPrimaryLanguage()); 
 		assertNull(lt.getExtendedLanguageSubtags()); 
@@ -584,19 +369,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testParse10() {
+	public void testParse10()
+		throws LangTagException {
 	
-		String s = "en-US-u-islamcal";
-		
-		LangTag lt = null;
-		
-		try {
-			lt = LangTag.parse(s);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = LangTag.parse("en-US-u-islamcal");
 
 		assertEquals("en", lt.getPrimaryLanguage()); 
 		assertNull(lt.getExtendedLanguageSubtags()); 
@@ -611,19 +387,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testParse11() {
+	public void testParse11()
+		throws LangTagException {
 	
-		String s = "en-a-myext-b-another";
-		
-		LangTag lt = null;
-		
-		try {
-			lt = LangTag.parse(s);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = LangTag.parse("en-a-myext-b-another");
 
 		assertEquals("en", lt.getPrimaryLanguage()); 
 		assertNull(lt.getExtendedLanguageSubtags()); 
@@ -639,19 +406,10 @@ public class LangTagTest extends TestCase {
 	}
 	
 	
-	public void testParse12() {
+	public void testParse12()
+		throws LangTagException {
 	
-		String s = "zh-CN-a-myext-x-private";
-		
-		LangTag lt = null;
-		
-		try {
-			lt = LangTag.parse(s);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
+		LangTag lt = LangTag.parse("zh-CN-a-myext-x-private");
 
 		assertEquals("zh", lt.getPrimaryLanguage()); 
 		assertNull(lt.getExtendedLanguageSubtags()); 
@@ -669,35 +427,19 @@ public class LangTagTest extends TestCase {
 	
 	public void testParse13() {
 	
-		String s = "invalid-tag";
-		
-		LangTag lt = null;
-		
 		try {
-			lt = LangTag.parse(s);
-			
-			fail("Failed to raise exception");
+			LangTag.parse("invalid-tag");
+			fail();
 			
 		} catch (LangTagException e) {
-		
 			// ok
 		}
 	}
 	
 	
-	public void testParse14() {
+	public void testParse14()
+		throws LangTagException {
 		
-		LangTag lt = null;
-		
-		try {
-			lt = LangTag.parse(null);
-			
-		} catch (LangTagException e) {
-		
-			fail(e.getMessage());
-		}
-		
-		assertNull(lt);
+		assertNull(LangTag.parse(null));
 	}
-
 }
