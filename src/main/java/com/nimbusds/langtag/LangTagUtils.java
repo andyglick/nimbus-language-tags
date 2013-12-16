@@ -216,6 +216,56 @@ public final class LangTagUtils {
 
 
 	/**
+	 * Returns a string list representation of the specified language tags
+	 * collection.
+	 *
+	 * @param langTags The language tags list. May be {@code null}.
+	 *
+	 * @return The string list, or {@code null} if the original list is
+	 *         {@code null}.
+	 */
+	public static List<String> toStringList(final Collection<LangTag> langTags) {
+
+		if (langTags == null)
+			return null;
+
+		List<String> out = new ArrayList<String>(langTags.size());
+
+		for (LangTag lt: langTags) {
+			out.add(lt.toString());
+		}
+
+		return out;
+	}
+
+
+	/**
+	 * Returns a string array representation of the specified language tags
+	 * collection.
+	 *
+	 * @param langTags The language tags list. May be {@code null}.
+	 *
+	 * @return The string list, or {@code null} if the original list is
+	 *         {@code null}.
+	 */
+	public static String[] toStringArray(final Collection<LangTag> langTags) {
+
+		if (langTags == null)
+			return null;
+
+		String[] out = new String[langTags.size()];
+
+		int i=0;
+
+		for (LangTag lt: langTags) {
+			out[i++] = lt.toString();
+		}
+
+		return out;
+	}
+
+
+	/**
 	 * Prevents public instantiation.
 	 */
 	private LangTagUtils() { }
