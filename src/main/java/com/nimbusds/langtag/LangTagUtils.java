@@ -266,6 +266,58 @@ public final class LangTagUtils {
 
 
 	/**
+	 * Parses a language tag list from the specified string collection.
+	 *
+	 * @param collection The string collection. May be {@code null}.
+	 *
+	 * @return The language tag list, or {@code null} if the parsed string
+	 *         collection is null.
+	 *
+	 * @throws LangTagException If parsing failed.
+	 */
+	public static List<LangTag> parseLangTagList(final Collection<String> collection)
+		throws LangTagException {
+
+		if (collection == null)
+			return null;
+
+		List<LangTag> out = new ArrayList<LangTag>(collection.size());
+
+		for (String s: collection) {
+			out.add(LangTag.parse(s));
+		}
+
+		return out;
+	}
+
+
+	/**
+	 * Parses a language tag array from the specified string array.
+	 *
+	 * @param stringArray The string array. May be {@code null}.
+	 *
+	 * @return The language tag array, or {@code null} if the parsed string
+	 *         array is null.
+	 *
+	 * @throws LangTagException If parsing failed.
+	 */
+	public static LangTag[] parseLangTagArray(final String[] stringArray)
+		throws LangTagException {
+
+		if (stringArray == null)
+			return null;
+
+		LangTag[] out = new LangTag[stringArray.length];
+
+		for (int i=0; i < stringArray.length; i++) {
+			out[i] = LangTag.parse(stringArray[i]);
+		}
+
+		return out;
+	}
+
+
+	/**
 	 * Prevents public instantiation.
 	 */
 	private LangTagUtils() { }
