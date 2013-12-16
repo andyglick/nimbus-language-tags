@@ -33,3 +33,9 @@ version 1.2 (2013-09-11)
 
 version 1.3 (2013-10-23)
  * Adds LangTagUtils.strip(Set) and LangTagUtils.strip(List) methods.
+
+version 1.4 (2013-12-16)
+ * Adds LangTagUtils.toStringList(Collection<LangTag>) and
+   LangTagUtils.toStringArray(LangTag[]) methods.
+ * Adds LangTagUtils.parseLangTagList(Collection<String>) and
+   LangTagUtils.parseLangTagArray(String[]) methods.
