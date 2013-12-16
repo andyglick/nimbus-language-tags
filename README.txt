@@ -37,5 +37,6 @@ version 1.3 (2013-10-23)
 version 1.4 (2013-12-16)
  * Adds LangTagUtils.toStringList(Collection<LangTag>) and
    LangTagUtils.toStringArray(LangTag[]) methods.
- * Adds LangTagUtils.parseLangTagList(Collection<String>) and
-   LangTagUtils.parseLangTagArray(String[]) methods.
+ * Adds LangTagUtils.parseLangTagList(Collection<String>),
+   LangTagUtils.parseLangTagList(String...) and
+   LangTagUtils.parseLangTagArray(String...) methods.

@@ -292,25 +292,51 @@ public final class LangTagUtils {
 
 
 	/**
-	 * Parses a language tag array from the specified string array.
+	 * Parses a language tag list from the specified string values.
 	 *
-	 * @param stringArray The string array. May be {@code null}.
+	 * @param values The string values. May be {@code null}.
+	 *
+	 * @return The language tag list, or {@code null} if the parsed string
+	 *         array is null.
+	 *
+	 * @throws LangTagException If parsing failed.
+	 */
+	public static List<LangTag> parseLangTagList(final String ... values)
+		throws LangTagException {
+
+		if (values == null)
+			return null;
+
+		List<LangTag> out = new ArrayList<LangTag>(values.length);
+
+		for (String s: values) {
+			out.add(LangTag.parse(s));
+		}
+
+		return out;
+	}
+
+
+	/**
+	 * Parses a language tag array from the specified string values.
+	 *
+	 * @param values The string values. May be {@code null}.
 	 *
 	 * @return The language tag array, or {@code null} if the parsed string
 	 *         array is null.
 	 *
 	 * @throws LangTagException If parsing failed.
 	 */
-	public static LangTag[] parseLangTagArray(final String[] stringArray)
+	public static LangTag[] parseLangTagArray(final String ... values)
 		throws LangTagException {
 
-		if (stringArray == null)
+		if (values == null)
 			return null;
 
-		LangTag[] out = new LangTag[stringArray.length];
+		LangTag[] out = new LangTag[values.length];
 
-		for (int i=0; i < stringArray.length; i++) {
-			out[i] = LangTag.parse(stringArray[i]);
+		for (int i=0; i < values.length; i++) {
+			out[i] = LangTag.parse(values[i]);
 		}
 
 		return out;

@@ -200,9 +200,16 @@ public class LangTagUtilTest extends TestCase {
 	public void testParseLangTagList()
 		throws LangTagException {
 
+		// From string list
 		List<String> in = Arrays.asList("bg-BG", "de-DE");
 
 		List<LangTag> out = LangTagUtils.parseLangTagList(in);
+		assertEquals("bg-BG", out.get(0).toString());
+		assertEquals("de-DE", out.get(1).toString());
+		assertEquals(2, out.size());
+
+		// From string varargs
+		out = LangTagUtils.parseLangTagList("bg-BG", "de-DE");
 		assertEquals("bg-BG", out.get(0).toString());
 		assertEquals("de-DE", out.get(1).toString());
 		assertEquals(2, out.size());
@@ -212,7 +219,7 @@ public class LangTagUtilTest extends TestCase {
 	public void testParseLangTagListNull()
 		throws LangTagException {
 
-		assertNull(LangTagUtils.parseLangTagList(null));
+		assertNull(LangTagUtils.parseLangTagList((String[])null));
 	}
 
 
