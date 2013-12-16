@@ -176,10 +176,10 @@ public final class LangTagUtils {
 		// start with "baseName"
 		for (Map.Entry<String,T> entry: map.entrySet()) {
 
-			T value = null;
+			T value;
 
 			try {
-				value = (T)entry.getValue();
+				value = entry.getValue();
 
 			} catch (ClassCastException e) {
 
