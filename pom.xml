@@ -19,7 +19,7 @@
 		(RFC 5646).
 	</description>
 
-	<url>https://bitbucket.org/connect2id/nimbus-langtag</url>
+	<url>https://bitbucket.org/connect2id/nimbus-language-tags</url>
 
 	<organization>
 		<name>Connect2id Ltd.</name>
@@ -35,9 +35,9 @@
 	</licenses>
     
 	<scm>
-		<connection>scm:git:https://bitbucket.org/connect2id/nimbus-langtag.git</connection>
-		<developerConnection>scm:git:git@bitbucket.org:connect2id/nimbus-langtag.git</developerConnection>
-		<url>https://bitbucket.org/connect2id/nimbus-langtag.git</url>
+		<connection>scm:git:https://bitbucket.org/connect2id/nimbus-language-tags.git</connection>
+		<developerConnection>scm:git:git@bitbucket.org:connect2id/nimbus-language-tags.git</developerConnection>
+		<url>https://bitbucket.org/connect2id/nimbus-language-tags.git</url>
 		<tag>HEAD</tag>
 	</scm>
     
