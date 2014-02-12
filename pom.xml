@@ -19,11 +19,11 @@
 		(RFC 5646).
 	</description>
 
-	<url>https://bitbucket.org/nimbusds/nimbus-langtag</url>
+	<url>https://bitbucket.org/connect2id/nimbus-langtag</url>
 
 	<organization>
-		<name>NimbusDS</name>
-		<url>http://nimbusds.com/</url>
+		<name>Connect2id Ltd.</name>
+		<url>http://connect2id.com/</url>
 	</organization>
     
 	<licenses>
@@ -35,9 +35,9 @@
 	</licenses>
     
 	<scm>
-		<connection>scm:git:https://bitbucket.org/nimbusds/nimbus-langtag.git</connection>
-		<developerConnection>scm:git:git@bitbucket.org:nimbusds/nimbus-langtag.git</developerConnection>
-		<url>https://bitbucket.org/nimbusds/nimbus-langtag.git</url>
+		<connection>scm:git:https://bitbucket.org/connect2id/nimbus-langtag.git</connection>
+		<developerConnection>scm:git:git@bitbucket.org:connect2id/nimbus-langtag.git</developerConnection>
+		<url>https://bitbucket.org/connect2id/nimbus-langtag.git</url>
 		<tag>HEAD</tag>
 	</scm>
     
