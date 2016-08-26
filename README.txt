@@ -40,3 +40,7 @@ version 1.4 (2014-01-14)
  * Adds LangTagUtils.parseLangTagList(Collection<String>),
    LangTagUtils.parseLangTagList(String...) and
    LangTagUtils.parseLangTagArray(String...) methods.
+
+version 1.4.1 (2016-08-26)
+ * Upgrades to JSON Smart 1.3.1.
+
