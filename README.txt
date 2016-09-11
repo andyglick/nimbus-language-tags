@@ -44,3 +44,5 @@ version 1.4 (2014-01-14)
 version 1.4.1 (2016-08-26)
  * Upgrades to JSON Smart 1.3.1.
 
+version 1.4.2 (2016-09-11)
+ * Adds copyright notice.
