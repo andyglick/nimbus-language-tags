@@ -46,3 +46,6 @@ version 1.4.1 (2016-08-26)
 
 version 1.4.2 (2016-09-11)
  * Adds copyright notice.
+
+version 1.4.3 (2016-09-11)
+ * Adds OSGi support.
