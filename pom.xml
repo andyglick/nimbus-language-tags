@@ -5,7 +5,7 @@
 
     <groupId>com.nimbusds</groupId>
     <artifactId>lang-tag</artifactId>
-    <version>1.4.4</version>
+    <version>1.4.5-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Nimbus LangTag</name>
@@ -36,7 +36,7 @@
             scm:git:git@bitbucket.org:connect2id/nimbus-language-tags.git
         </developerConnection>
         <url>https://bitbucket.org/connect2id/nimbus-language-tags.git</url>
-        <tag>1.4.4</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <developers>
